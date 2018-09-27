@@ -1,0 +1,16 @@
+https://archive.org/download/stackexchange/ai.meta.stackexchange.com.7z
+https://archive.org/download/stackexchange/ai.stackexchange.com.7z
+https://archive.org/download/stackexchange/cs.meta.stackexchange.com.7z
+https://archive.org/download/stackexchange/cs.stackexchange.com.7z
+https:/archive.org/download/stackexchange/cseducators.meta.stackexchange.com.7z
+https:/archive.org/download/stackexchange/cseducators.stackexchange.com.7z
+https:/archive.org/download/stackexchange/cstheory.meta.stackexchange.com.7z
+https:/archive.org/download/stackexchange/cstheory.stackexchange.com.7z
+https:/archive.org/download/stackexchange/stackoverflow.com-Badges.7z
+https:/archive.org/download/stackexchange/stackoverflow.com-Comments.7z
+https:/archive.org/download/stackexchange/stackoverflow.com-PostHistory.7z
+https:/archive.org/download/stackexchange/stackoverflow.com-PostLinks.7z
+https:/archive.org/download/stackexchange/stackoverflow.com-Posts.7z
+https:/archive.org/download/stackexchange/stackoverflow.com-Tags.7z
+https:/archive.org/download/stackexchange/stackoverflow.com-Users.7z
+https:/archive.org/download/stackexchange/stackoverflow.com-Votes.7z
