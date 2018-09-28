@@ -3,25 +3,25 @@
    Usage: convert_xml_to_json.py <xml-file> >
 '''
 
-import json     			           # build-in python package
-import sys					   # sys.argv()
+import json     			 # build-in python package
+import sys				 # sys.argv()
 import xmltodict
 
 def convert(xml_file, xml_attribs=True):
-    #print(xml_file)
     # TODO: read whole directory
-    json_file  = str(xml_file).split("/")[-1].split(".")[0] + ".json"
-    #path = "~/Downloads/" + json_file
-    #print(json_file)
-    path = "/home/ubuntu/Downloads/" + json_file
+    file_name = str(xml_file).split("/")[-1].split(".")[0]
+    json_file  = file_name + ".json"
+    out_path = "/home/ubuntu/Downloads/" + json_file
     #print("path", path)
     #print("xml_file", xml_file)
-    with open(xml_file, "rb") as f, open(path, "w") as out:    # notice the "rb" mode
-        d = xmltodict.parse(f, xml_attribs=xml_attribs)
+    with open(xml_file, "rb") as input, open(out_path, "w") as output:    # notice the "rb" mode
+        d = xmltodict.parse(input, xml_attribs=xml_attribs)
         for i in d["posts"]["row"]:
-            out.write(json.dumps(i, indent=4))
+            output.write(json.dumps({"index": {"_index": file_name, "_id": i["@Id"] }}, indent=4))
+            output.write(json.dumps(i, indent=4))
 
 def main():
+    # sys.argv[1] = <json.file>
     if sys.version_info[0] == 3 and len(sys.argv) == 2:
         try:
             convert(sys.argv[1], True)

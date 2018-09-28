@@ -10,7 +10,7 @@ import subprocess				   # shell scripts
 def load_json(directory):
     '''Use a generator, no need to load all in memory'''
     for filename in os.listdir(directory):
-        print("filename:\t", filename)
+        # print("filename:\t", filename)
         if filename.endswith('.json'):
             input  = directory + filename
             with open(input,'r') as open_file:
@@ -22,22 +22,20 @@ def main():
         "mappings": {
              "posts": {
                   "properties": {
-                     "@id":         {"type": "keyword"},
-                     "@PostTypeId": {"type": "keyword"},
-                     "@AcceptedAnswerId": {"type": "text"},
+                     "@AcceptedAnswerId": {"type": "integer"},
                      "@CreationDate": {"type": "date"},
-                     "@Score": {"type": "float"},
-                     "@ViewCount": {"type": "float"},
+                     "@Score": {"type": "integer"},
+                     "@ViewCount": {"type": "integer"},
                      "@Body": { "type": "text"},
-                     "@OwnerUserId": {"type": "float"},
-                     "@LastEditorUserId": {"type": "float"},
+                     "@OwnerUserId": {"type": "integer"},
+                     "@LastEditorUserId": {"type": "integer"},
                      "@LastEditDate": {"type": "date"},
                      "@LastActivityDate": {"type": "date"},
                      "@Title": { "type": "text" },
-                     "@Tags": { "type": "float"},
-                     "@AnswerCount": {"type": "float"},
-                     "@CommentCount": {"type": "float"},
-                     "@FavoriteCount": {"type": "float"}
+                     "@Tags": { "type": "text"},
+                     "@AnswerCount": {"type": "integer"},
+                     "@CommentCount": {"type": "integer"},
+                     "@FavoriteCount": {"type": "integer"}
                       }
                     }
               }
@@ -45,12 +43,33 @@ def main():
         }""")
 
     es.indices.create(index="posts", body=body)
-    
+    actions = []
     if sys.version_info[0] == 3 and len(sys.argv) == 2:
         try:
-            # print("input file", sys.argv[1])
-            #print(*
-            load_json(sys.argv[1]) #)
+            for i, line in tqdm(enumerate(open(sys.argv[1]))):
+               review = json.loads(line)
+               actions.append({
+                   "_index": "posts",
+                   "_type": "review",
+                   "_source": {
+                   "@AcceptedAnswerId": review["@AcceptedAnswerId"],
+                   "@CreationDate": review["@CreationDate"],
+                   "@Score": review["@Score""],
+                   "@ViewCount": review["@ViewCount"], #if "reviewerName" in review else None,
+                   "@Body": review["@Body"],
+                   "@OwnerUserId": review["@OwnerUserId"],
+                   "@LastEditorUserId": review["@LastEditorUserId"],
+                   "@LastEditDate": review["@LastEditDate"],
+                   "@LastActivityDate": review["@LastActivityDate"],
+                   "@Title": review["@Title"],
+                   "@Tags": review["@Tags"],
+                   "@AnswerCount": ["@AnswerCount"],
+                   "@CommentCount": ["@CommentCount"],
+                   "@FavoriteCount": ["@FavoriteCount"]
+                }})
+
+            helpers.bulk(es, actions)
+
             #helpers.bulk(es, load_json(sys.argv[1]), index='my-index', doc_type='my-type')
             # "@Id": "1810902"
 
