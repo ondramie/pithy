@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
+'''Creates a subset of data to run on the elasticsearch'''
+
 import sys              # sys.argv()
-import json             # build-in python package
+import json             # json.loads()
 
 def main():
     with open(sys.argv[1], "r") as data, open("posts_small.json", "w") as output:
