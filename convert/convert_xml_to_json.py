@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
-'''shebang: !/home/ubuntu/anaconda2/envs/p3/bin/python
-   Converts xml file into json
+'''Converts xml file into json file
    Usage: convert_xml_to_json.py <xml-file>
-   NOTE: run on ubuntu, not mac local
+   NOTE: alternative shebang: 
+        !/home/ubuntu/anaconda2/envs/p3/bin/python
+   NOTE: ~/ == ./home/unbuntu
 '''
 
 import json             # build-in python package
@@ -18,13 +19,14 @@ def convert(xml_file, xml_attribs=True):
     json_file  = file_name + ".json"
     out_path = "/home/ubuntu/Downloads/" + json_file
 
-    with open(xml_file, "rb") as input, open(out_path, "w") as output:
-        d = xmltodict.parse(input, xml_attribs=xml_attribs)
-        for i in d["posts"]["row"]:
+    with open(xml_file, "rb") as inputs, open(out_path, "w") as output:
+        d = xmltodict.parse(inputs, xml_attribs=xml_attribs)
+        print(json.dumps(d, indent=2))
+        '''for i in d["posts"]["row"]:
             # creates index for elasticSearch format 
             output.write(json.dumps({"index": 
-                {"_index": file_name, "_id": i["@Id"]}}, indent=4))
-            output.write(json.dumps(i, indent=4))
+                {"_index": file_name, "_id": i["@Id"]}})+ "\n") #, indent=4))
+            output.write(json.dumps(i) + "\n") #, indent=4))'''
 
 def main():
     # sys.argv[1] = <xxx.json>

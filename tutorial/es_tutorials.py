@@ -53,12 +53,9 @@ def main():
 
     # verifies creation of indices
     subprocess.call("curl -X GET localhost:9200/_cat/indices?v", shell=True)
-    
-    # simple queries
-    res = es.search(index="shakespeare", doc_type="doc", 
-        body={"query": {"match": {"speaker": "WEST*"}}})
 
-    print(json.dumps(res, indent=2))
+    # deletes indices 
+    # es.indices.delete(index='shakespeare', ignore=[400, 404])
 
 if __name__  == "__main__":
     main()
