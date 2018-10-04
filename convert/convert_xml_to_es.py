@@ -44,7 +44,8 @@ def load_es(xml_file, xml_attribs=True):
 def main():
     # sys.argv[1] = <xxx.json>
     if sys.version_info[0] == 3 and len(sys.argv) == 2:
-        try:    
+        try:
+
             load_es(sys.argv[1], True)
         except IOError:
             print(sys.stderr)
