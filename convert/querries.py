@@ -31,7 +31,6 @@ def main():
 
     # websites
     sites = ["https://stackoverflow.com/questions/" + str(link) for link in links]
-    print(sites)
 
 if __name__  == "__main__":
     main()

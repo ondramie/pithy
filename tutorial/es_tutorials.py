@@ -22,7 +22,8 @@ def upload(json_file):
         for line in json_in:
             d = json.loads(line) 
             if len(d) > 1: 
-                actions.append({"_index": "shakespeare",
+                actions.append({
+                    "_index": "shakespeare",
                     "_type": "doc",
                     "_source": {
                         "speaker": d["speaker"],
