@@ -38,13 +38,15 @@
         <!--<p class="lead"><br> </p> -->
       </div>
       <table class="table table-hover">
-      <tr><th>Most Likely Solutions to Errors</th><th>Total views of related videos</th><th>Examples</th></tr>
+      <tr><th>Most Likely Solutions to Your Errors</th></tr>
       <!--<tr><th>massivejoes</th><th>931,751</th><th>https://www.youtube.com/watch?v=SQA1aTYH3N8&t=39s</th></tr>
       <tr><th>AlphaMconsulting</th><th>496,822</th><th>https://www.youtube.com/results?search_query=1TQt4acn5PI</th></tr>
       <tr><th>UCuejlFSYOTCo7SDnGPfThhw</th><th>214,788</th><th>https://www.youtube.com/watch?v=Nnb2AH3mOwU&t=20s</th></tr> -->
-      {% for birth in births %}
-      <tr><td>{{ birth }}</td><td>{{'l'}}</td><td> {{'Examples'}}</td></tr>
-      {% endfor %}
+      <ul>>
+        {% for birth in births %}
+          <li>{{ birth }}</li>
+        {% endfor %}
+      <ul>
       </table>
 
      </div><!-- /.container -->
