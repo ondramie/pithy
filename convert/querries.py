@@ -7,7 +7,7 @@ import sys			                                # sys.argv()
 from elasticsearch import Elasticsearch, helpers    # helpers.bulk()
 
 def main():     
-    es = Elasticsearch()
+    es = Elasticsearch() 
     index="posts"
 
     # returns number of entries
@@ -26,11 +26,13 @@ def main():
 
     # 
     res = es.search(index=index, doc_type=index, body={"query": 
-    {"match_phrase": {"@Body": "Math.Floor()"}}}) 
-    links = [entries['_source']['@Id'] for entries in res['hits']['hits']]
+    {"match_phrase": {"Body": "Math.Floor()"}}}) 
+    #print(res['hits']['hits'])
+    links = [entries['_source']['_source']['Id'] for entries in res['hits']['hits']]
 
     # websites
     sites = ["https://stackoverflow.com/questions/" + str(link) for link in links]
+    print(sites)
 
 if __name__  == "__main__":
     main()

@@ -1,0 +1,137 @@
+match
+{
+  "hits": {
+    "hits": [
+      {
+        "_score": 2.7047482, 
+        "_type": "doc", 
+        "_id": "AWYsEsLaVQ4GDdds-tZ-", 
+        "_source": {
+          "line_id": 61, 
+          "speech_number": 4, 
+          "speaker": "WESTMORELAND", 
+          "play_name": "Henry IV"
+        }, 
+        "_index": "shakespeare"
+      }, 
+      {
+        "_score": 2.609438, 
+        "_type": "doc", 
+        "_id": "AWYsEitPVQ4GDdds-tZ2", 
+        "_source": {
+          "line_id": 59, 
+          "speech_number": 4, 
+          "speaker": "WESTMORELAND", 
+          "play_name": "Henry IV"
+        }, 
+        "_index": "shakespeare"
+      }, 
+      {
+        "_score": 2.2992828, 
+        "_type": "doc", 
+        "_id": "AWYsEitPVQ4GDdds-tZ3", 
+        "_source": {
+          "line_id": 60, 
+          "speech_number": 4, 
+          "speaker": "WESTMORELAND", 
+          "play_name": "Henry IV"
+        }, 
+        "_index": "shakespeare"
+      }, 
+      {
+        "_score": 2.2992828, 
+        "_type": "doc", 
+        "_id": "AWYsEyA7VQ4GDdds-taE", 
+        "_source": {
+          "line_id": 61, 
+          "speech_number": 4, 
+          "speaker": "WESTMORELAND", 
+          "play_name": "Henry IV"
+        }, 
+        "_index": "shakespeare"
+      }, 
+      {
+        "_score": 2.098612, 
+        "_type": "doc", 
+        "_id": "AWYsEsLaVQ4GDdds-tZ8", 
+        "_source": {
+          "line_id": 59, 
+          "speech_number": 4, 
+          "speaker": "WESTMORELAND", 
+          "play_name": "Henry IV"
+        }, 
+        "_index": "shakespeare"
+      }, 
+      {
+        "_score": 2.098612, 
+        "_type": "doc", 
+        "_id": "AWYsEyA7VQ4GDdds-taC", 
+        "_source": {
+          "line_id": 59, 
+          "speech_number": 4, 
+          "speaker": "WESTMORELAND", 
+          "play_name": "Henry IV"
+        }, 
+        "_index": "shakespeare"
+      }, 
+      {
+        "_score": 1.9162908, 
+        "_type": "doc", 
+        "_id": "AWYsEitPVQ4GDdds-tZ4", 
+        "_source": {
+          "line_id": 61, 
+          "speech_number": 4, 
+          "speaker": "WESTMORELAND", 
+          "play_name": "Henry IV"
+        }, 
+        "_index": "shakespeare"
+      }, 
+      {
+        "_score": 1.9162908, 
+        "_type": "doc", 
+        "_id": "AWYsEsLaVQ4GDdds-tZ9", 
+        "_source": {
+          "line_id": 60, 
+          "speech_number": 4, 
+          "speaker": "WESTMORELAND", 
+          "play_name": "Henry IV"
+        }, 
+        "_index": "shakespeare"
+      }, 
+      {
+        "_score": 1.9162908, 
+        "_type": "doc", 
+        "_id": "AWYsEyA7VQ4GDdds-taD", 
+        "_source": {
+          "line_id": 60, 
+          "speech_number": 4, 
+          "speaker": "WESTMORELAND", 
+          "play_name": "Henry IV"
+        }, 
+        "_index": "shakespeare"
+      }
+    ], 
+    "total": 9, 
+    "max_score": 2.7047482
+  }, 
+  "_shards": {
+    "successful": 5, 
+    "failed": 0, 
+    "total": 5
+  }, 
+  "took": 3, 
+  "timed_out": false
+}
+========================
+exists
+True
+========================
+match_phrase
+{"hits": {"hits": [], "total": 0, "max_score": null}, "_shards": {"successful": 5, "failed": 0, "total": 5}, "took": 2, "timed_out": false}
+========================
+term
+{"hits": {"hits": [], "total": 0, "max_score": null}, "_shards": {"successful": 5, "failed": 0, "total": 5}, "took": 1, "timed_out": false}
+========================
+reg_exp
+{"hits": {"hits": [], "total": 0, "max_score": null}, "_shards": {"successful": 5, "failed": 0, "total": 5}, "took": 1, "timed_out": false}
+========================
