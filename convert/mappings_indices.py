@@ -23,10 +23,10 @@ class Mappings:
             "mappings": {
                 "comments": {
                     "properties": {               
-                        "@Id": {"type": "integer"},
-                        "@PostId": {"type": "integer"},
-                        "@Score": {"type": "integer"},
-                        "@Text": {"type": "text"}
+                        "Id": {"type": "integer"},
+                        "PostId": {"type": "integer"},
+                        "Score": {"type": "integer"},
+                        "Text": {"type": "text"}
                     }
                 }
             }
@@ -35,8 +35,8 @@ class Mappings:
             "mappings": {
                 "postlinks": {
                     "properties": {               
-                        "@Id": {"type": "integer"},
-                        "@CreationDate": {"type": "date"}
+                        "Id": {"type": "integer"},
+                        "CreationDate": {"type": "date"}
                         "@PostId": {"type": "integer"},
                         "@RelatedPostId": {"type": "integer"},
                         "@LinkTypeId": {"type": "integer"}
