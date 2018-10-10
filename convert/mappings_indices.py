@@ -37,9 +37,23 @@ class Mappings:
                     "properties": {               
                         "Id": {"type": "integer"},
                         "CreationDate": {"type": "date"}
-                        "@PostId": {"type": "integer"},
-                        "@RelatedPostId": {"type": "integer"},
-                        "@LinkTypeId": {"type": "integer"}
+                        "PostId": {"type": "integer"},
+                        "RelatedPostId": {"type": "integer"},
+                        "LinkTypeId": {"type": "integer"}
+                    }
+                }
+            }
+        }"""
+        self.badges = """{
+           "mappings": {
+                "badges": {
+                    "properties": {               
+                        "Id": {"type": "integer"},
+                        "UserId": {"type": "integer"}
+                        "Name": {"type": "integer"},
+                        "Date": {"type": "date"},
+                        "Class": {"type": "integer"},
+                        "TagBased": {"type": boolean}
                     }
                 }
             }
@@ -66,10 +80,10 @@ class Indices():
             "_index": "comments",
             "_type": "review",
             "_source": {
-            "@Id": review["@Id"],
-            "@PostId": review["@PostId"],
-            "@Score": review["@Score"],
-            "@Text": review["@Text"]
+                "Id": review["@Id"],
+                "PostId": review["@PostId"],
+                "Score": review["@Score"],
+                "Text": review["@Text"]
             }
         }
 
@@ -78,10 +92,23 @@ class Indices():
             "_index": "postlinks",
             "_type": "review",
             "_source": {
-            "@Id": review.get("@Id", None),
-            "@CreationDate": review.get("@Creat", None),
-            "@PostId": review.get("@PostId", None),
-            "@RelatedPostId": review.get("@RelatedPostId", None), 
-            "LinkTypeId": review.get("LinkTypeId", None)
+                "Id": review.get("@Id", None),
+                "CreationDate": review.get("@Creat", None),
+                "PostId": review.get("@PostId", None),
+                "RelatedPostId": review.get("@RelatedPostId", None), 
+                "LinkTypeId": review.get("LinkTypeId", None)
+            }
+        }
+    def badges(self, review): 
+        return {
+            "_index": "badges",
+            "_type": "review",
+            "_source": {
+                "Id": review.get("Id", None),
+                "UserId": review.get("UserId", None),
+                "Name": review.get("Name", None),
+                "Date": review.get("Date", None),
+                "Class": review.get("Class", None),
+                "TagBased": review.get("TagBased", None)
             }
         }

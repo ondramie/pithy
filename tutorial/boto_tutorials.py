@@ -46,7 +46,9 @@ def main():
 
     s3obj = boto3.resource('s3').Object(bucket_name=BUCKET_NAME, key=FILE_NAME)
     contents = s3obj.get()['Body'].read().decode('utf-8')
-    sc.parallelize(contents)
+    spark.read.format("com.databricks.spark.xml") \
+              .options(rowTag='row').load(content)
+              
 
 
 
