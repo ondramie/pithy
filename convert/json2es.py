@@ -4,7 +4,6 @@
    NOTE: alternative shebang: 
         !/home/ubuntu/anaconda2/envs/p3/bin/python
    NOTE: ~/ == ./home/unbuntu
-   NOTE: ubuntu@ip-172-31-86-160 
    '''
 
 import json                                         # build-in python package
@@ -20,11 +19,8 @@ def load_es(file_name):
     indices = Indices()
     print("stackoverflow filename:\t", json_name)
 
-    # NOTE: elastics nodes with 6.4.2:  'http://54.152.44.95:9200', 
-    es = Elasticsearch(['54.209.55.117:9200',
-                        '18.205.23.187:9200',
-                        '54.88.62.138:9200',
-                        '54.210.232.252:9200'])
+    # NOTE: elastics nodes with 6.4.2:
+    es = Elasticsearch()
     
     #es = Elasticsearch()
     #subprocess.call("curl -XGET localhost:9200/_cluster/health?pretty=true", shell=True)
