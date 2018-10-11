@@ -80,10 +80,10 @@ class Indices():
             "_index": "comments",
             "_type": "review",
             "_source": {
-                "Id": review["@Id"],
-                "PostId": review["@PostId"],
-                "Score": review["@Score"],
-                "Text": review["@Text"]
+                "Id": review["Id"],
+                "PostId": review["PostId"],
+                "Score": review["Score"],
+                "Text": review["Text"]
             }
         }
 
@@ -92,13 +92,14 @@ class Indices():
             "_index": "postlinks",
             "_type": "review",
             "_source": {
-                "Id": review.get("@Id", None),
-                "CreationDate": review.get("@Creat", None),
-                "PostId": review.get("@PostId", None),
-                "RelatedPostId": review.get("@RelatedPostId", None), 
+                "Id": review.get("Id", None),
+                "CreationDate": review.get("CreationDate", None),
+                "PostId": review.get("PostId", None),
+                "RelatedPostId": review.get("RelatedPostId", None), 
                 "LinkTypeId": review.get("LinkTypeId", None)
             }
         }
+
     def badges(self, review): 
         return {
             "_index": "badges",
