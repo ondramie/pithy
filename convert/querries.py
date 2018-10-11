@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 
-''' Sample queries of error codes
-    18.234.204.121
-
-'''
+''' Sample queries of error code'''
 
 import json     	                                        # json.dumps()
 import sys			                                        # sys.argv()
