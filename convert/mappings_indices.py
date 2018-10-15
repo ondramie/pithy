@@ -19,6 +19,23 @@ class Mappings:
                 }
             }
         }"""
+        # A post is either an accepted answer or question.  The question
+        # may have an accepted answer designated with the keyword 
+        # "AcceptedAnswerId" or the accepted answer may be due to its
+        # "Score." 
+        self.posts2 = """{
+            "mappings": {
+                "posts2": {
+                    "properties": {
+                        "Id": {"type": "keyword"},
+                        "Score": {"type": "integer"},
+                        "Body": {"type": "text"},
+                        "ParentId": {"type": "keyword"},
+                        "AcceptedAnswerId": {"type": "keyword"}
+                    }
+                }
+            }
+        }"""
         self.comments =  """{
             "mappings": {
                 "comments": {
@@ -74,7 +91,18 @@ class Indices():
                 "CommentCount": review.get("CommentCount", None)
             }
         }
-    
+    def posts2(self, review):
+        return {
+            "_index": "posts2",
+            "_type": "posts2",
+            "_source": {
+                "Id": review.get("Id", None),
+                "Score": review.get("Score", None),
+                "ParentId": review.get("ParentId", None),
+                "Body": review.get("Body", None),
+                "AcceptedAnswerId": review.get("AcceptedAnswerId", None)
+            }
+        }
     def comments(self, review):
         return {
             "_index": "comments",
