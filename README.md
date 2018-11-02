@@ -29,9 +29,7 @@ The data was acquried from the Stack Overflow archive.  The size of the archive 
 
 # Demo 
 The terminal demo is here: 
-[![asciicast]()](https://asciinema.org/a/JygkzImwci5uZwUXrsTyk8mPR)
-
-https://asciinema.org/a/JygkzImwci5uZwUXrsTyk8mPR.png
+[![asciicast](https://asciinema.org/a/JygkzImwci5uZwUXrsTyk8mPR.png)](https://asciinema.org/a/JygkzImwci5uZwUXrsTyk8mPR)
 
 The Visual Code demo is here: 
 
