@@ -19,11 +19,11 @@ def load_es(file_name, bulk_size):
     print("bulk_size:\t\t", bulk_size)
 
     es = Elasticsearch(private_ips(), request_timeout=5000)
-    #subprocess.call("curl -XGET localhost:9200/_cluster/health?pretty=true", shell=True)
-    #subprocess.call("curl -X GET localhost:9200/_cat/indices?v", shell=True)
-    #subprocess.call("curl localhost:9200/_cat/nodes", shell=True)
+    subprocess.call("curl -XGET localhost:9200/_cluster/health?pretty=true", shell=True)
+    subprocess.call("curl -X GET localhost:9200/_cat/indices?v", shell=True)
+    subprocess.call("curl localhost:9200/_cat/nodes", shell=True)
 
-    #es.indices.delete(index=json_name, ignore=[400, 404])
+    es.indices.delete(index=json_name, ignore=[400, 404])
     es.indices.create(index=json_name, ignore=400, body=getattr(maps,json_name))  
     mem = getattr(indices, json_name)
 
@@ -38,7 +38,6 @@ def load_es(file_name, bulk_size):
 
         if actions:
             helpers.bulk(es, actions)
-            #es.index(index=json_name, doc_type=json_name, body=actions)
 
 def main():
     load_es(sys.argv[1], sys.argv[2])
