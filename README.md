@@ -1,8 +1,13 @@
 # Debugging Demystified
-The goal of this project is to create a software tool that helps a programmer debug his or hers stack trace with solutions from the website Stack Overflow.  The data was acquried from the Stack Overflow archive.  The size of the archive is over 100GB.     
+The goal of this project is to create a software tool that helps a programmer debug his or hers stack trace with solutions from the website Stack Overflow.  It is estimated that more than 49% of a programmers time is spent debugging. It is also estimated that 30% of a programmers time is spent searching for solutions - mostly through google search and/or Stack Overflow.     
+
+
+
+The data was acquried from the Stack Overflow archive.  The size of the archive is over 100GB.     
 
 # Folder Structure
 + `input` - gets input from Stack Overflow and ingests into S3
+    + `aiflow` - schedules download   
 + `convert` - converts xml to json; ingests json to Elastic Search
     + `spark` - converts XML to JSON through spark job
 + `flask` - original interface (defunct)
@@ -10,6 +15,7 @@ The goal of this project is to create a software tool that helps a programmer de
 + `latency` - plots of query latency 
 + `queries` - queries used to examine latency and accuracy of queries
 + `vcode` - Visual Code Extenstion
++ `lambda` - lambda function for unpacking zip files on S3  
 
 # Technologies Used
 + Spark 
@@ -22,6 +28,12 @@ The goal of this project is to create a software tool that helps a programmer de
 + Elasic Search 6.2.4
 
 # Demo 
-[![asciicast](https://asciinema.org/a/JygkzImwci5uZwUXrsTyk8mPR.png)](https://asciinema.org/a/JygkzImwci5uZwUXrsTyk8mPR)
+The terminal demo is here: 
+[![asciicast]()](https://asciinema.org/a/JygkzImwci5uZwUXrsTyk8mPR)
+
+https://asciinema.org/a/JygkzImwci5uZwUXrsTyk8mPR.png
+
+The Visual Code demo is here: 
+
 
 # Current Work
